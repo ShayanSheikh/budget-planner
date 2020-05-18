@@ -1,26 +1,36 @@
 import React, { useState } from 'react';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import './App.css';
-import { getSession, logIn } from './session';
+import { getSession, logIn, logOut } from './session';
 
 const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'
+
 const App = () => {
+  const [loggedIn, setLoggedIn] = useState(getSession());
+
   const onLoginFailure = () => {
     alert('Problem with loggin in, please try again');
   };
 
   const onLoginSuccess = (response) => {
-    console.log(response);
     logIn(response.accessToken);
+    setLoggedIn(true);
+  }
+
+  const onLogoutSuccess = () => {
+    logOut();
+    setLoggedIn(false);
   }
 
   return (
-    getSession() ? 
+    loggedIn ? 
     <div className="App">
-      <script src="https://apis.google.com/js/platform.js" async defer></script>
-      <meta name="google-signin-client_id" content="26226890893-djsgsov2l5q3heko9182s3ormemdcj0t.apps.googleusercontent.com" />
       <h1>Welcome to the Demo</h1>
-      <div className="g-signin2"></div>
+        <GoogleLogout
+          clientId={CLIENT_ID}
+          buttonText="Logout"
+          onLogoutSuccess={onLogoutSuccess}
+        />
     </div>
     :
     <GoogleLogin
