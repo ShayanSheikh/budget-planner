@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getUserInfo } from './session';
 
 const AppContext = React.createContext();
 
@@ -11,6 +12,13 @@ const AppProvider = ({ children }) => {
     },
     confirmed: false
   });
+
+  useEffect(() => {
+    const userInfo = getUserInfo();
+    console.log(userInfo)
+    if (userInfo) setState(s => ({ ...s, ...userInfo }));
+  }, []);
+
   return <AppContext.Provider value={{ state, setState }}>{children}</AppContext.Provider>;
 };
 
