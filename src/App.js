@@ -1,31 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { getSession, logIn, logOut } from './session';
+import React, { useState, useEffect, useContext } from 'react';
+import { GoogleLogout } from 'react-google-login';
+import { getSession, logOut } from './session';
 import { Box, Container, Grid, Typography, Slider, TextField } from '@material-ui/core';
 import SalaryInput from './SalaryInput';
 import MoneyDisplay from './MoneyDisplay';
+import Login from './Login'
+import { AppContext } from './AppProvider';
 
 const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(getSession());
   const [expensePercentage, setExpensePercentage] = useState(1);
   const [salary, setSalary] = useState('');
   const [expenses, setExpenses] = useState('');
   const [savings, setSavings] = useState('');
 
-  const onLoginFailure = () => {
-    alert('Problem with loggin in, please try again');
-  };
-
-  const onLoginSuccess = (response) => {
-    logIn(response.accessToken);
-    setLoggedIn(true);
-  }
-
   const onLogoutSuccess = () => {
     logOut();
-    setLoggedIn(false);
   }
 
   const expenseText = (value) => {
@@ -38,7 +29,7 @@ const App = () => {
   }, [salary, expensePercentage]);
 
   return (
-    loggedIn ? 
+    getSession() ? 
     <Container maxWidth="sm">
       <Box display="flex" justifyContent="space-between">
         <h1>Budget Planner</h1>
@@ -91,13 +82,7 @@ const App = () => {
         </Container>
     </Container>
     :
-    <GoogleLogin
-      clientId={CLIENT_ID}
-      buttonText="Login"
-      onSuccess={onLoginSuccess}
-      onFailure={onLoginFailure}
-      cookiePolicy={'single_host_origin'}
-    />
+    <Login />
   );
 }
 
