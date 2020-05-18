@@ -13,18 +13,18 @@ const Login = () => {
   };
 
   const onLoginSuccess = (response) => {
-    logIn(response.accessToken);
-    setState({ ...state, user: response.accessToken });
+    logIn(response.accessToken, response.profileObj.givenName);
+    setState({ ...state, user: response.profileObj.givenName});
   }
 
   return (
-      <GoogleLogin
-        clientId={CLIENT_ID}
-        buttonText="Login"
-        onSuccess={onLoginSuccess}
-        onFailure={onLoginFailure}
-        cookiePolicy={'single_host_origin'}
-      />
+    <GoogleLogin
+      clientId={CLIENT_ID}
+      buttonText="Login"
+      onSuccess={onLoginSuccess}
+      onFailure={onLoginFailure}
+      cookiePolicy={'single_host_origin'}
+    />
   );
 }
 
