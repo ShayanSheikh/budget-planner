@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { getSession, logIn, logOut } from './session';
 import { Box, Container, Grid, Typography, Slider, TextField } from '@material-ui/core';
-import SalaryInput from './SalaryInput'
+import SalaryInput from './SalaryInput';
+import MoneyDisplay from './MoneyDisplay';
 
 const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'
 
@@ -78,13 +79,13 @@ const App = () => {
               Your Expenses
             </Grid>
             <Grid item xs={6}>
-              {expenses}
+              <MoneyDisplay value={expenses}/>
             </Grid>
             <Grid item xs={6}>
               Your Savings
             </Grid>
             <Grid item xs={6}>
-              {savings}
+              <MoneyDisplay value={savings} />
             </Grid>
           </Grid>
         </Container>
