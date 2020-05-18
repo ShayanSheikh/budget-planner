@@ -15,7 +15,6 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     const userInfo = getUserInfo();
-    console.log(userInfo)
     if (userInfo) setState(s => ({ ...s, ...userInfo }));
   }, []);
 
