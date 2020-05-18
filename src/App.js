@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { getSession, logIn, logOut } from './session';
-import { Box, Container, Grid, Typography, Slider, Input } from '@material-ui/core';
+import { Box, Container, Grid, Typography, Slider, TextField } from '@material-ui/core';
+import SalaryInput from './SalaryInput'
 
 const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'
 
@@ -64,11 +65,13 @@ const App = () => {
               Your Salary
             </Grid>
             <Grid item xs={6}>
-              <Input
-                placeholder='Enter Salary'
+              <TextField
+                label="Enter Salary"
                 value={salary}
-                onChange={(e) => setSalary(e.target.value)}
-                style={{textAlign: "center"}}
+                onChange={e => setSalary(e.target.value)}
+                InputProps={{
+                  inputComponent: SalaryInput,
+                }}
               />
             </Grid>
             <Grid item xs={6}>
