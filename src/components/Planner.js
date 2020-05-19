@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { setUserInfo } from '../utils/session';
-import { Button, Container, Grid, Typography, Slider, TextField } from '@material-ui/core';
+import { Button, Container, Grid, Slider, TextField } from '@material-ui/core';
 import { MoneyDisplay, SalaryInput } from '.';
 import { AppContext } from '../AppProvider';
 
@@ -31,18 +31,20 @@ const Planner = () => {
     <>
       <h2>{`Welcome ${user}`}</h2>
       <Container>
-        <Typography id="discrete-slider" gutterBottom>
-          Expenses
-        </Typography>
-        <Slider
-          value={expensePercentage}
-          onChange={(e, val) => setExpensePercentage(val)}
-          step={0.1}
-          min={1}
-          max={30}
-          valueLabelDisplay="auto"
-        />
         <Grid container spacing={3}>
+          <Grid item xs={6}>
+            Your Election
+          </Grid>
+          <Grid item xs={6}>
+            <Slider
+              value={expensePercentage}
+              onChange={(e, val) => setExpensePercentage(val)}
+              step={0.1}
+              min={1}
+              max={30}
+              valueLabelDisplay="auto"
+            />
+          </Grid>
           <Grid item xs={6}>
             Your Salary
           </Grid>
