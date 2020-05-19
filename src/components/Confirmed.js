@@ -4,7 +4,7 @@ import { Button, Container, Grid } from '@material-ui/core';
 import { MoneyDisplay } from '.';
 import { AppContext } from '../AppProvider';
 
-const Planner = () => {
+const Confirmed = () => {
   const { state, setState } = useContext(AppContext);
   const { user, elections } = state;
 
@@ -68,4 +68,4 @@ const Planner = () => {
   );
 }
 
-export default Planner;
+export default Confirmed;
