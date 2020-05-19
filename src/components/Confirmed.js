@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { GoogleLogout } from 'react-google-login';
-import { logOut, setUserInfo } from '../session';
-import { Box, Button, Container, Grid } from '@material-ui/core';
+import { setUserInfo } from '../session';
+import { Button, Container, Grid } from '@material-ui/core';
 import { MoneyDisplay } from '.';
 import { AppContext } from '../AppProvider';
-
-const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'
 
 const Planner = () => {
   const { state, setState } = useContext(AppContext);
@@ -15,11 +12,6 @@ const Planner = () => {
   const [salary] = useState(elections.salary);
   const [expenses, setExpenses] = useState('');
   const [savings, setSavings] = useState('');
-
-  const onLogoutSuccess = () => {
-    logOut();
-    setState({ ...state, user: null })
-  };
 
   useEffect(() => {
     setExpenses(salary / 12 * expensePercentage / 100);
@@ -32,15 +24,7 @@ const Planner = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box display="flex" justifyContent="space-between">
-        <h1>Budget Planner</h1>
-        <GoogleLogout
-          clientId={CLIENT_ID}
-          buttonText="Logout"
-          onLogoutSuccess={onLogoutSuccess}
-        />
-      </Box>
+    <>
       <h2>{`Thank You ${user}`}</h2>
       <Container>
         <Grid container spacing={3}>
@@ -80,7 +64,7 @@ const Planner = () => {
           </Grid>
         </Grid>
       </Container>
-    </Container>
+    </>
   );
 }
 
