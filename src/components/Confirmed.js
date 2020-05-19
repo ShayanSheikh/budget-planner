@@ -32,7 +32,7 @@ const Confirmed = () => {
             Your Election
           </Grid>
           <Grid item xs={6}>
-            <MoneyDisplay value={expensePercentage} />
+            {`${expensePercentage}%`}
           </Grid>
           <Grid item xs={6}>
             Your Salary
