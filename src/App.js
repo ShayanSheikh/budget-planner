@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { GoogleLogout } from 'react-google-login';
 import { getSession, logOut } from './utils/session';
-import { CLIENT_ID } from './utils/constants';
+import { CLIENT_ID, INITIAL_STATE } from './utils/constants';
 import { Box, Container } from '@material-ui/core';
 import { Confirmed, Login, Planner } from './components';
 import { AppContext } from './AppProvider';
@@ -12,7 +12,7 @@ const App = () => {
 
   const onLogoutSuccess = () => {
     logOut();
-    setState({ ...state, user: null })
+    setState(INITIAL_STATE);
   };
 
   return (
