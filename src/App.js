@@ -23,10 +23,6 @@ const App = () => {
     setState({ ...state, user: null })
   }
 
-  const expenseText = (value) => {
-    return `${value}%`;
-  }
-
   useEffect(() => {
     setExpenses(salary / 12 * expensePercentage / 100);
     setSavings(salary / 12 * (1 - expensePercentage / 100));
@@ -50,12 +46,11 @@ const App = () => {
         </Typography>
         <Slider
           value={expensePercentage}
-          getAriaValueText={expenseText}
           onChange={(e, val) => setExpensePercentage(val)}
           step={0.1}
           min={1}
           max={30}
-          valueLabelDisplay="on"
+          valueLabelDisplay="auto"
         />
         <Grid container spacing={3}>
           <Grid item xs={6}>
