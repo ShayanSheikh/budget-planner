@@ -2,9 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { GoogleLogout } from 'react-google-login';
 import { getSession, logOut, setUserInfo } from './session';
 import { Box, Button, Container, Grid, Typography, Slider, TextField } from '@material-ui/core';
-import SalaryInput from './SalaryInput';
-import MoneyDisplay from './MoneyDisplay';
-import Login from './Login'
+import { Login, MoneyDisplay, SalaryInput } from './components';
 import { AppContext } from './AppProvider';
 
 const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'

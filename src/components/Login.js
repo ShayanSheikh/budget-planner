@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { logIn } from './session';
-import { AppContext } from './AppProvider';
+import { logIn } from '../session';
+import { AppContext } from '../AppProvider';
 
 const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'
 
