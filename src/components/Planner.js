@@ -33,7 +33,7 @@ const Planner = () => {
       <Container>
         <Typography id="discrete-slider" gutterBottom>
           Expenses
-      </Typography>
+        </Typography>
         <Slider
           value={expensePercentage}
           onChange={(e, val) => setExpensePercentage(val)}
@@ -45,7 +45,7 @@ const Planner = () => {
         <Grid container spacing={3}>
           <Grid item xs={6}>
             Your Salary
-        </Grid>
+          </Grid>
           <Grid item xs={6}>
             <TextField
               label="Enter Salary"
@@ -58,13 +58,13 @@ const Planner = () => {
           </Grid>
           <Grid item xs={6}>
             Your Expenses
-        </Grid>
+          </Grid>
           <Grid item xs={6}>
             <MoneyDisplay value={expenses} />
           </Grid>
           <Grid item xs={6}>
             Your Savings
-        </Grid>
+          </Grid>
           <Grid item xs={6}>
             <MoneyDisplay value={savings} />
           </Grid>
