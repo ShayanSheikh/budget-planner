@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { GoogleLogout } from 'react-google-login';
-import { getSession, logOut } from './session';
-import { Box, Container, Grid, Typography, Slider, TextField } from '@material-ui/core';
+import { getSession, logOut, setUserInfo } from './session';
+import { Box, Button, Container, Grid, Typography, Slider, TextField } from '@material-ui/core';
 import SalaryInput from './SalaryInput';
 import MoneyDisplay from './MoneyDisplay';
 import Login from './Login'
@@ -28,8 +28,17 @@ const App = () => {
     setSavings(salary / 12 * (1 - expensePercentage / 100));
   }, [salary, expensePercentage]);
 
+  const handleSubmit = () => {
+    const userInfo = {
+      elections: { salary, expensePercentage },
+      confirmed: true
+    }
+    setState({ ...state, ...userInfo });
+    setUserInfo(userInfo);
+  };
+
   return (
-    getSession() ? 
+    getSession() ?
     <Container maxWidth="sm">
       <Box display="flex" justifyContent="space-between">
         <h1>Budget Planner</h1>
@@ -78,6 +87,10 @@ const App = () => {
           <Grid item xs={6}>
             <MoneyDisplay value={savings} />
           </Grid>
+            <Grid item xs={6} />
+            <Grid item xs={6}>
+              <Button onClick={handleSubmit}>Submit</Button>
+            </Grid>
         </Grid>
       </Container>
     </Container>
