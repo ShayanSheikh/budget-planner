@@ -1,12 +1,12 @@
 import Cookies from 'js-cookie'
 
 const getUserInfo = () => {
-  const userInfo = Cookies.get('__user');
+  const userInfo = Cookies.get('__userInfo');
   return userInfo ? JSON.parse(userInfo) : userInfo;
 };
 
-const setUserInfo = user => {
-  Cookies.set('__user', JSON.stringify(user));
+const setUserInfo = userInfo => {
+  Cookies.set('__userInfo', JSON.stringify(userInfo));
 };
 
 const getSession = () => {
@@ -21,7 +21,7 @@ const logIn = (token, user) => {
 
 const logOut = () => {
   Cookies.remove('__session');
-  Cookies.remove('__user');
+  Cookies.remove('__userInfo');
 };
 
 export {
