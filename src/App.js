@@ -7,12 +7,12 @@ import { Confirmed, Login, Planner } from './components';
 import { AppContext } from './AppProvider';
 
 const App = () => {
-  const { state, setState } = useContext(AppContext);
+  const { state, handleSetState } = useContext(AppContext);
   const { confirmed } = state;
 
   const onLogoutSuccess = () => {
     logOut();
-    setState(INITIAL_STATE);
+    handleSetState(INITIAL_STATE);
   };
 
   return (

@@ -8,7 +8,11 @@ const AppProvider = ({ children }) => {
   const cookieInfo = getUserInfo() || {};
   const [state, setState] = useState({ ...INITIAL_STATE, ...cookieInfo });
 
-  return <AppContext.Provider value={{ state, setState }}>{children}</AppContext.Provider>;
+  const handleSetState = newState => {
+    setState({ ...state, ...newState });
+  }
+
+  return <AppContext.Provider value={{ state, handleSetState }}>{children}</AppContext.Provider>;
 };
 
 export default AppProvider;

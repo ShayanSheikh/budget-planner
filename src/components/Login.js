@@ -6,7 +6,7 @@ import { Box, Container } from '@material-ui/core';
 import { AppContext } from '../AppProvider';
 
 const Login = () => {
-  const { state, setState } = useContext(AppContext);
+  const { handleSetState } = useContext(AppContext);
 
   const onLoginFailure = (error) => {
     alert('There was a problem with logging you in, please try again');
@@ -15,7 +15,7 @@ const Login = () => {
 
   const onLoginSuccess = (response) => {
     logIn(response.accessToken, response.profileObj.givenName);
-    setState({ ...state, user: response.profileObj.givenName});
+    handleSetState({ user: response.profileObj.givenName });
   }
 
   return (

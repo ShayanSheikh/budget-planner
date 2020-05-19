@@ -5,7 +5,7 @@ import { MoneyDisplay, SalaryInput } from '.';
 import { AppContext } from '../AppProvider';
 
 const Planner = () => {
-  const { state, setState } = useContext(AppContext);
+  const { state, handleSetState } = useContext(AppContext);
   const { user, elections } = state;
 
   const [expensePercentage, setExpensePercentage] = useState(elections.expensePercentage);
@@ -23,7 +23,7 @@ const Planner = () => {
       elections: { salary, expensePercentage },
       confirmed: true
     }
-    setState({ ...state, ...userInfo });
+    handleSetState(userInfo);
     setUserInfo(userInfo);
   };
 

@@ -5,7 +5,7 @@ import { MoneyDisplay } from '.';
 import { AppContext } from '../AppProvider';
 
 const Confirmed = () => {
-  const { state, setState } = useContext(AppContext);
+  const { state, handleSetState } = useContext(AppContext);
   const { user, elections } = state;
 
   const [expensePercentage] = useState(elections.expensePercentage);
@@ -19,7 +19,7 @@ const Confirmed = () => {
   }, [salary, expensePercentage]);
 
   const handleEdit = () => {
-    setState({ ...state, confirmed: false });
+    handleSetState({ confirmed: false });
     setUserInfo({ confirmed: false });
   };
 
