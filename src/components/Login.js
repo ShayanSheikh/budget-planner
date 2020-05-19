@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { logIn } from '../session';
+import { logIn } from '../utils/session';
 import { Box, Container } from '@material-ui/core';
 import { AppContext } from '../AppProvider';
 

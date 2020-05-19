@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { setUserInfo } from '../session';
+import { setUserInfo } from '../utils/session';
 import { Button, Container, Grid } from '@material-ui/core';
 import { MoneyDisplay } from '.';
 import { AppContext } from '../AppProvider';

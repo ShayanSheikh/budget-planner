@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GoogleLogout } from 'react-google-login';
-import { getSession, logOut } from './session';
+import { getSession, logOut } from './utils/session';
 import { Box, Container } from '@material-ui/core';
 import { Confirmed, Login, Planner } from './components';
 import { AppContext } from './AppProvider';
