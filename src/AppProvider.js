@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { getUserInfo } from './session';
 
 const AppContext = React.createContext();
 
-const AppProvider = ({ children }) => {
-  const [state, setState] = useState({
-    user: null,
-    elections: {
-      expensePercentage: 1,
-      salary: ''
-    },
-    confirmed: false
-  });
+const initialState = {
+  user: null,
+  elections: {
+    expensePercentage: 1,
+    salary: ''
+  },
+  confirmed: false
+}
 
-  useEffect(() => {
-    const userInfo = getUserInfo();
-    if (userInfo) setState(s => ({ ...s, ...userInfo }));
-  }, []);
+const AppProvider = ({ children }) => {
+  const cookieInfo = getUserInfo() || {};
+  const [state, setState] = useState({ ...initialState, ...cookieInfo })
 
   return <AppContext.Provider value={{ state, setState }}>{children}</AppContext.Provider>;
 };
