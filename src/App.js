@@ -21,7 +21,7 @@ const App = () => {
   const onLogoutSuccess = () => {
     logOut();
     setState({ ...state, user: null })
-  }
+  };
 
   useEffect(() => {
     setExpenses(salary / 12 * expensePercentage / 100);
