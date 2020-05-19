@@ -6,7 +6,9 @@ const getUserInfo = () => {
 };
 
 const setUserInfo = userInfo => {
-  Cookies.set('__userInfo', JSON.stringify(userInfo));
+  const currUserInfo = getUserInfo();
+  const combinedUserInfo = { ...currUserInfo, userInfo };
+  Cookies.set('__userInfo', JSON.stringify(combinedUserInfo));
 };
 
 const getSession = () => {
