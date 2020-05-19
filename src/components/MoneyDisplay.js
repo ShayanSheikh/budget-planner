@@ -9,7 +9,7 @@ const MoneyDisplay = ({ value }) => {
       thousandSeparator
       isNumericString
       prefix="$"
-      decimalScale="2"
+      decimalScale={2}
       fixedDecimalScale
     />
   );
