@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
 import { getUserInfo } from './utils/session';
+import { INITIAL_STATE } from './utils/constants';
 
 const AppContext = React.createContext();
 
-const initialState = {
-  user: null,
-  elections: {
-    expensePercentage: 1,
-    salary: ''
-  },
-  confirmed: false
-}
-
 const AppProvider = ({ children }) => {
   const cookieInfo = getUserInfo() || {};
-  const [state, setState] = useState({ ...initialState, ...cookieInfo });
+  const [state, setState] = useState({ ...INITIAL_STATE, ...cookieInfo });
 
   return <AppContext.Provider value={{ state, setState }}>{children}</AppContext.Provider>;
 };

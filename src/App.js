@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { GoogleLogout } from 'react-google-login';
 import { getSession, logOut } from './utils/session';
+import { CLIENT_ID } from './utils/constants';
 import { Box, Container } from '@material-ui/core';
 import { Confirmed, Login, Planner } from './components';
 import { AppContext } from './AppProvider';
-
-const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleusercontent.com'
 
 const App = () => {
   const { state, setState } = useContext(AppContext);
