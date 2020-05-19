@@ -29,5 +29,5 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm build`
+### `npm deploy`
 Creates a build and deploys to github pages. To deploy it yourself, change the `homepage` variable in `package.json`, and just run this command. You may also need to configure your repo to deploy from the `gh-pages` branch.
