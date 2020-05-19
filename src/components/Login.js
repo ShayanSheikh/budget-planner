@@ -8,8 +8,8 @@ const CLIENT_ID = '26226890893-7uke9sajq33a0ddg5896nfkvp7phulmd.apps.googleuserc
 const Login = () => {
   const { state, setState } = useContext(AppContext);
 
-  const onLoginFailure = () => {
-    alert('Problem with logging in, please try again');
+  const onLoginFailure = (error) => {
+    console.log(error);
   };
 
   const onLoginSuccess = (response) => {
