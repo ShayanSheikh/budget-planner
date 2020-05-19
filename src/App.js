@@ -89,7 +89,13 @@ const App = () => {
           </Grid>
             <Grid item xs={6} />
             <Grid item xs={6}>
-              <Button onClick={handleSubmit}>Submit</Button>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
             </Grid>
         </Grid>
       </Container>
